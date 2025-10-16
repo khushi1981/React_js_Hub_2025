@@ -1,0 +1,184 @@
+/* ---------- Page Container ---------- */
+.subjects-container {
+  font-family: 'Roboto Slab', 'Poppins', sans-serif; /* Updated font for modern look */
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f0f4f8, #e8f0f5);
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+/* ---------- Title ---------- */
+.subjects-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #6a11cb, #2575fc, #43e97b, #38f9d7);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 6s ease-in-out infinite;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.subjects-title span {
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ---------- Subtitle ---------- */
+.subjects-subtitle {
+  font-family: 'Open Sans', sans-serif; /* secondary font */
+  font-size: 1.15rem;
+  color: #555;
+  max-width: 850px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* ---------- Subject Grid ---------- */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px;
+  justify-items: center;
+}
+
+/* ---------- Subject Card ---------- */
+.subject-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 28px;
+  width: 100%;
+  max-width: 330px;
+  box-shadow: 0 12px 28px rgba(0, 123, 255, 0.12);
+  transition: all 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated overlay */
+.subject-card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(106, 17, 203, 0.1),
+    rgba(67, 233, 123, 0.1)
+  );
+  background-size: 200% 200%;
+  animation: moveBackground 8s linear infinite;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.subject-card * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Subject Image Box (Light Gradient) ---------- */
+.subject-img {
+  background: linear-gradient(135deg, #f0f9ff, #d0f0fc); /* lighter gradient */
+  border-radius: 22px;
+  padding: 20px;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.subject-img img {
+  width: 200px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+}
+
+.subject-img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 14px 36px rgba(0, 123, 255, 0.18);
+  background: linear-gradient(135deg, #c8f7d4, #a8f5eb); /* hover lighter gradient */
+}
+
+/* ---------- Text ---------- */
+.subject-card h3 {
+  font-size: 1.45rem;
+  color: #2575fc;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+.subject-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ---------- Explore Button ---------- */
+.explore-btn {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 18px rgba(106, 17, 203, 0.25);
+}
+
+.explore-btn:hover {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 22px rgba(67, 233, 123, 0.3);
+}
+
+/* ---------- Hover Card Effect ---------- */
+.subject-card:hover {
+  transform: translateY(-12px) scale(1.04);
+  box-shadow: 0 18px 40px rgba(67, 233, 123, 0.25);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 0%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes moveBackground {
+  0% { background-position: 0 0; }
+  50% { background-position: 50% 50%; }
+  100% { background-position: 0 0; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .subjects-title {
+    font-size: 2.2rem;
+  }
+  .subjects-subtitle {
+    font-size: 1rem;
+  }
+  .subject-img img {
+    width: 140px;
+    height: 140px;
+  }
+}

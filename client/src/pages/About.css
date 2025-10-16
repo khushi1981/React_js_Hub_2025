@@ -1,0 +1,227 @@
+/* 🌈 Animated Gradient Background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: #1c244b;
+  background: linear-gradient(-45deg, #dce6ff, #eaf4ff, #f8efff, #e3f2ff);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  overflow-x: hidden;
+}
+
+/* 🌟 Main About Page Layout */
+.about-page {
+  padding: 80px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 70px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.about-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #1e2a47;
+  margin-bottom: 15px;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  color: #4a90e2;
+}
+
+.about-subtitle {
+  font-size: 1.3rem;
+  color: #3e4b6d;
+  font-weight: 500;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* 🌐 Section Animation */
+.about-section {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 100px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.9s ease-out;
+}
+
+.about-section.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* ✍️ Content Styling */
+.about-content {
+  flex: 1;
+}
+
+.about-content h2 {
+  font-size: 2.3rem;
+  margin-bottom: 20px;
+  color: #14213d;
+  font-family: "Space Grotesk", sans-serif;
+  text-shadow: 2px 4px 10px rgba(74, 144, 226, 0.2);
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #334;
+  margin-bottom: 15px;
+}
+
+/* 📘 Bullet Points */
+.about-content ul {
+  margin-left: 20px;
+  margin-bottom: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.about-content li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.about-section.animate li {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about-content li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4a90e2;
+  font-weight: bold;
+  font-size: 1.4rem;
+  transform: scale(1);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.about-content li:hover {
+  transform: translateX(10px);
+  color: #1e2a47;
+}
+
+.about-content li:hover::before {
+  transform: scale(1.5);
+  color: #ff7a59;
+}
+
+/* 🖼️ Image Container */
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 🌈💫 Image Design */
+.about-image-content {
+  width: 100%;
+  max-width: 350px; /* Same size for both Resource Hub & Knowledge Nexus */
+  border-radius: 25px;
+  padding: 6px;
+  background: linear-gradient(135deg, #4a90e2, #ff7a59, #4adede);
+  background-size: 200% 200%;
+  animation: borderGradient 6s ease infinite, float 3.5s ease-in-out infinite;
+  box-shadow: 0 0 25px rgba(74, 144, 226, 0.3);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+@keyframes borderGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.about-image-content img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+}
+
+.about-image-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 45px rgba(255, 122, 89, 0.6);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ✨ Footer Styling */
+.about-footer {
+  text-align: center;
+  margin-top: 60px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.about-quote {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #1e2a47;
+  margin-bottom: 15px;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.about-tagline {
+  font-size: 1.3rem;
+  color: #4a90e2;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 📱 Responsive */
+@media (max-width: 900px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-section.reverse {
+    flex-direction: column;
+  }
+
+  .about-image-content {
+    max-width: 250px;
+    margin-bottom: 25px;
+  }
+
+  .about-content h2 {
+    font-size: 1.9rem;
+  }
+
+  .about-content p,
+  .about-content li {
+    font-size: 1rem;
+  }
+}

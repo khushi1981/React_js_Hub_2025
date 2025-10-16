@@ -1,0 +1,300 @@
+/* ---------- Page Container ---------- */
+.auth-home-container {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #e3f2fd, #d9e2ec);
+  box-sizing: border-box;
+}
+
+/* ---------- Auth Box ---------- */
+.auth-box-section {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 50px 40px;
+  border-radius: 25px;
+  width: 100%;
+  max-width: 850px;
+  background: #f7fbff;
+  box-shadow: 0 12px 30px rgba(0, 123, 255, 0.15);
+  animation: fadeIn 1.2s ease-in-out;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.auth-box-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 35px rgba(0, 123, 255, 0.25);
+}
+
+/* ---------- Background Glow Animation ---------- */
+.auth-box-section::before {
+  content: "";
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    60deg,
+    rgba(255, 255, 255, 0.25) 25%,
+    rgba(0, 0, 0, 0.05) 50%,
+    rgba(255, 255, 255, 0.25) 75%
+  );
+  background-size: 200% 200%;
+  animation: moveBackground 10s linear infinite;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.auth-box-section * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Title ---------- */
+#auth-home h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #007bff, #00c6ff, #007bff);
+  background-clip: text;               /* ✅ Added standard property */
+  -webkit-background-clip: text;       /* ✅ Vendor prefix */
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+#auth-home h2 span {
+  background: inherit;
+  background-clip: text;               /* ✅ Added standard property */
+  -webkit-background-clip: text;       /* ✅ Vendor prefix */
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Welcome Image ---------- */
+.auth-welcome-img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.auth-welcome-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------- Button Container ---------- */
+.auth-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* ---------- Auth Buttons ---------- */
+.auth-btn {
+  padding: 14px 45px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  letter-spacing: 0.5px;
+}
+
+/* Login Button */
+.login-btn {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #00f2fe, #4facfe);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Register Button */
+.register-btn {
+  background: linear-gradient(135deg, #43e97b, #38f9d7);
+}
+
+.register-btn:hover {
+  background: linear-gradient(135deg, #38f9d7, #43e97b);
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .auth-box-section {
+    padding: 40px 25px;
+  }
+
+  #auth-home h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .auth-button-container {
+    gap: 40px;
+  }
+
+  .auth-btn {
+    padding: 12px 35px;
+    font-size: 1rem;
+  }
+}
+
+/* ---------- Motivational Text ---------- */
+.motivational-text {
+  font-family: "Playfair Display", "Poppins", serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+  max-width: 750px;
+  margin: 25px auto 45px auto;
+  line-height: 1.6;
+  letter-spacing: 0.8px;
+  position: relative;
+
+  /* Gradient color from Login + Register buttons */
+  background: linear-gradient(
+    90deg,
+    #4facfe,  /* blue */
+    #00f2fe,  /* cyan */
+    #43e97b,  /* green */
+    #38f9d7   /* teal */
+  );
+  background-size: 300% 300%;
+  background-clip: text;               /* ✅ Added standard property */
+  -webkit-background-clip: text;       /* ✅ Vendor prefix */
+  -webkit-text-fill-color: transparent;
+
+  /* Glow effect */
+  text-shadow: 0 0 10px rgba(72, 239, 255, 0.4),
+               0 0 20px rgba(72, 239, 255, 0.2),
+               0 0 30px rgba(72, 239, 255, 0.1);
+
+  /* Animation effects */
+  animation: fadeInUp 1.5s ease-out forwards,
+             gradientFlow 6s ease-in-out infinite,
+             floatText 4.5s ease-in-out infinite,
+             glowPulse 3.5s ease-in-out infinite;
+  opacity: 0;
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient color flow */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Gentle floating motion */
+@keyframes floatText {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Soft glowing pulse */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 10px rgba(72, 239, 255, 0.3),
+                 0 0 20px rgba(72, 239, 255, 0.2),
+                 0 0 30px rgba(72, 239, 255, 0.1);
+  }
+  50% {
+    text-shadow: 0 0 18px rgba(72, 239, 255, 0.6),
+                 0 0 30px rgba(72, 239, 255, 0.4),
+                 0 0 45px rgba(72, 239, 255, 0.3);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(72, 239, 255, 0.3),
+                 0 0 20px rgba(72, 239, 255, 0.2),
+                 0 0 30px rgba(72, 239, 255, 0.1);
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .motivational-text {
+    font-size: 1.2rem;
+    padding: 0 15px;
+  }
+}

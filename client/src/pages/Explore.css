@@ -1,0 +1,162 @@
+/* ==== Animated Background ==== */
+.explore-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+.background-animation {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, #1e3c72, #2a5298, #1e3c72);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ==== Page Title ==== */
+.page-title {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* ==== Filter Section ==== */
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 30px auto;
+}
+
+.filter-section select,
+.search-section input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-section {
+  display: flex;
+  gap: 10px;
+}
+
+.search-section button {
+  background: #00c6ff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.search-section button:hover {
+  background: #0072ff;
+}
+
+/* ==== Card Grid ==== */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+.media-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.media-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.media-card h4 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.media-card p {
+  font-size: 0.95rem;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-group button {
+  background: #ff8c00;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-group button:hover {
+  background: #ff6700;
+}
+
+/* ==== No Result ==== */
+.no-result {
+  text-align: center;
+  color: #ffd;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.clear-btn {
+  background: linear-gradient(135deg, #007bff, #00c6ff); /* Blue gradient */
+  color: #ffffff; /* White text for contrast */
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3);
+}
+
+.clear-btn:hover {
+  background: linear-gradient(135deg, #0056d6, #0096d6);
+  transform: scale(1.07);
+  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.4);
+}
+

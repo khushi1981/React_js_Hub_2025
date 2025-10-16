@@ -1,0 +1,35 @@
+this._s=this._s||{};(function(_){var window=this;
+try{
+_.t("TxCJfd");
+_.or=class{constructor(a,b,c){this.name=a;this.oa=b;this.Aa=c}getName(){return this.name}};
+_.u();
+}catch(e){_._DumpException(e)}
+try{
+_.t("HUEBbc");
+_.rHp=function(a){if((new URLSearchParams(_.sv(a.Dc))).get("gsc")!=="2")return!1;try{return a.window.get().self!==a.window.get().top}catch(b){return!0}};_.sHp=class extends _.Zn{static Sa(){return{service:{window:_.$n,Dc:_.tv}}}constructor(a){super();this.window=a.service.window;this.Dc=a.service.Dc}};_.Le(_.Bab,_.sHp);
+_.u();
+}catch(e){_._DumpException(e)}
+try{
+var $Ve;_.ZVe=class extends _.m{constructor(a){super(a)}getType(){return _.xi(this,1)}setType(a){return _.Bg(this,1,a)}Ne(){return _.Cj(this,1)}Je(){return _.Jg(this,1)}getSize(){return _.hd(this,2,20)}setSize(a){return _.ih(this,2,a)}mP(){return _.gd(this,2)}};$Ve=[0,_.H,_.C];var aWe=class extends _.m{constructor(a){super(a)}getTitle(){return _.A(this,1)}setTitle(a){return _.Mf(this,1,a)}ud(){return _.zj(this,1)}Qc(){return _.A(this,2)}getImageUrl(){return _.A(this,3)}En(){return _.zj(this,3)}Aa(){return _.ti(this,3)}vv(){return _.A(this,4)}};var bWe=class extends _.m{constructor(a){super(a)}getImageUrl(){return _.A(this,2)}En(){return _.zj(this,2)}Aa(){return _.ti(this,2)}};var cWe=class extends _.m{constructor(a){super(a)}getImageUrl(){return _.A(this,2)}En(){return _.zj(this,2)}Aa(){return _.ti(this,2)}};cWe.prototype.ob="Mrq4Xb";_.dWe=class extends _.m{constructor(a){super(a)}uke(){return _.zj(this,1)}getIcon(){return _.p(this,_.ZVe,4)}setIcon(a){return _.wb(this,_.ZVe,4,a)}hasIcon(){return _.Nh(this,_.ZVe,4)}};_.fWe=class extends _.m{constructor(a){super(a)}OI(){return _.qg(this,aWe,2,_.eWe)}Wb(){return _.qg(this,_.dWe,3,_.eWe)}Zb(a){return _.hi(this,3,_.eWe,a)}Te(){return _.Ph(this,_.dWe,3,_.eWe)}ZT(){return _.qg(this,cWe,4,_.eWe)}getPlace(){return _.qg(this,bWe,5,_.eWe)}};_.eWe=[1,2,3,4,5,6,7,8,9];_.gWe=[0,_.eWe,_.vk,[0,_.E,-2,_.wk,_.E],_.vk,[0,_.E,-3],_.vk,[0,_.E,-2,$Ve],_.vk,[0,_.E,-1],_.vk,[0,_.E,-1],_.vk,[0,_.E],_.vk,[0,_.E,-1,[0,_.E,-5,_.C,_.D,-1,_.C],_.H],_.vk,[0,_.E,-5],_.vk,[0,_.qk,_.E,-2,_.H]];
+}catch(e){_._DumpException(e)}
+try{
+_.YVe=class extends _.m{constructor(a){super(a)}};
+}catch(e){_._DumpException(e)}
+try{
+_.hWe=[0,_.E,_.nRc,_.wk,_.H,1,_.H];_.jWe=function(){var a=new _.iWe;return _.Fg(a,1,!0)};_.iWe=class extends _.m{constructor(a){super(a)}};_.kWe=[3,4];_.lWe=class extends _.m{constructor(a){super(a)}Ba(){return _.A(this,1)}Ca(){return _.zj(this,1)}getConfiguration(){return _.p(this,_.iWe,3)}setConfiguration(a){return _.wb(this,_.iWe,3,a)}};_.lWe.prototype.Aa=_.Db([0,_.E,_.F,[0,_.E,-2,[0,_.kWe,_.H,1,_.vk,[0,_.wk,_.hWe],_.vk,[0,_.E,-1]],_.H],[0,_.D,-4],[0,_.E,-1,_.H,_.D,5,_.gWe,_.E]]);
+}catch(e){_._DumpException(e)}
+try{
+_.We(_.I1a);
+}catch(e){_._DumpException(e)}
+try{
+_.mWe=class extends _.m{constructor(a){super(a)}};_.nWe=[0,_.F,_.gWe];_.oWe=class extends _.m{constructor(a){super(a)}Aa(a){_.jh(this,2,_.YVe,a)}Ca(){return _.p(this,_.mWe,8)}Ba(a){_.wb(this,_.mWe,8,a)}};
+}catch(e){_._DumpException(e)}
+try{
+_.t("hjoqoe");
+var YKC=class extends _.m{constructor(a){super(a)}};var ZKC=class extends _.m{constructor(a){super(a)}},$KC=[1];var aLC=_.Bb([0,$KC,_.vk,[0,_.Ek]]);var bLC=class extends _.m{constructor(a){super(a)}};var cLC=class extends _.m{constructor(a){super(a)}};var dLC=class extends _.m{constructor(a){super(a)}qe(){return _.p(this,cLC,1)}fF(){return _.Nh(this,cLC,1)}};var eLC=[1,2];var fLC=_.Ab(class extends _.m{constructor(a){super(a)}},[0,eLC,_.vk,[0,_.Ek],_.vk,[0,[0,_.E,_.F,[0,_.E,_.nRc,1,_.H],_.H]]]);var gLC=[0],hLC=async function(a,b){a.Ia.has("AiModeInput")||a.Ia.set("AiModeInput",[]);a.Ia.get("AiModeInput").push(b);return async()=>{if(a.Ia.has("AiModeInput")){const c=a.Ia.get("AiModeInput"),d=c.indexOf(b);d>=0&&c.splice(d,1);c.length===0&&a.Ia.delete("AiModeInput")}}};
+_.Le(_.Cab,class extends _.Zn{static Sa(){return{service:{window:_.$n,x$a:_.sHp}}}constructor(a){super();this.Ia=new Map;this.window=a.service.window;this.x$a=a.service.x$a;this.window.get().addEventListener("message",b=>{if(b.origin==="chrome-untrusted://lens")switch(b=fLC(b.data),_.bi(b,eLC)){case 1:b=_.qg(b,bLC,1,eLC);_.Gi(b,1,_.Wf());b=this.sendMessage;var c=new ZKC;var d=new YKC;d=_.TBa(d,1,gLC);c=_.hi(c,1,$KC,d);b.call(this,c);break;case 2:if(!_.qg(b,dLC,2,eLC).fF())throw Error("tD");this.handleEvent("AiModeInput",
+_.qg(b,dLC,2,eLC).qe(),_.oWe)}},!1)}isAvailable(){return _.rHp(this.x$a)}Ta(a){return hLC(this,a)}Ca(){return!1}Da(){return!1}oa(){return!1}Ma(){return!1}Aa(){return!1}Pa(){Promise.resolve(void 0)}Ka(){return Promise.resolve(void 0)}Ba(){return Promise.resolve(void 0)}Ea(){return Promise.resolve(void 0)}handleEvent(a,b,c){if(this.Ia.has(a)){b=_.Fb(c,b.serialize());a=[...this.Ia.get(a)];for(const d of a)d(b)}}sendMessage(a){a=aLC(a);this.window.get().parent.postMessage(a,"chrome-untrusted://lens")}});
+_.u();
+}catch(e){_._DumpException(e)}
+})(this._s);
+// Google Inc.

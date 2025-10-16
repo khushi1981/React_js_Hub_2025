@@ -1,0 +1,217 @@
+/* ---------- Fade-in Animation ---------- */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Wrapper ---------- */
+.dashboard-wrapper {
+  display: flex;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background: #f5f6fa;
+  overflow: hidden; /* Prevent double scroll */
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 220px;
+  height: 100vh;
+  background: #2c3e50;
+  color: #fff;
+  padding: 20px 15px;
+  position: fixed; /* Fixed sidebar */
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 1s ease forwards;
+  overflow-y: auto; /* Scroll if menu too long */
+}
+
+.sidebar-logo {
+  font-size: 1.7rem;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item {
+  padding: 12px 15px;
+  margin: 8px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.sidebar-item:hover {
+  background: #34495e;
+  transform: translateX(5px);
+}
+
+/* ---------- Main Content ---------- */
+.dashboard-content {
+  margin-left: 220px; /* space for sidebar */
+  width: calc(100% - 220px);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* scroll main content */
+  padding: 20px 30px;
+  animation: fadeIn 1s ease forwards;
+}
+
+/* ---------- Header ---------- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: #fff;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0; /* Header stays on top */
+  z-index: 100;
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ---------- Dashboard Cards ---------- */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+  padding-bottom: 20px;
+}
+
+/* ---------- Individual Card ---------- */
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px;
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px) scale(1.04);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.25);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ---------- Scrollbar Styling ---------- */
+.dashboard-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dashboard-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .sidebar {
+    width: 200px;
+  }
+  .dashboard-content {
+    margin-left: 200px;
+    width: calc(100% - 200px);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-wrapper {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    position: relative;
+  }
+  .sidebar-logo {
+    display: none;
+  }
+  .dashboard-content {
+    margin-left: 0;
+    width: 100%;
+  }
+  .dashboard-cards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+}
