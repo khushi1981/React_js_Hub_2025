@@ -140,7 +140,7 @@ function DashboardFooter() {
             "Category",
             "Explore",
             "Subscription",
-            "Profile",
+            "UserProfile",
           ].map((text, idx) => (
             <Link
               key={idx}

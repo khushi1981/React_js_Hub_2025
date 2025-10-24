@@ -148,7 +148,7 @@ function Footer() {
         <Box>
           {[
             "Home",
-            "About Us",
+            "About",
             "Explore",
             "Subjects",
             "AuthPage",

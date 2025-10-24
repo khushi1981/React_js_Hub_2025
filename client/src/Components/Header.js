@@ -48,9 +48,6 @@ function Header() {
           <Button component={Link} to="/AuthPage" sx={navButtonStyle}>
             AuthPage
           </Button>
-          <Button component={Link} to="/userprofile" sx={navButtonStyle}>
-            User Profile
-          </Button>
         </Stack>
       </Toolbar>
     </AppBar>
