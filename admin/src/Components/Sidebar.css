@@ -1,50 +1,150 @@
-.sidebar {
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* SIDEBAR */
+.SidebarLayout {
   width: 250px;
-  background-color: #2f3542;
+  background: linear-gradient(180deg, #0f172a, #1e293b, #0f172a);
   color: white;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  position: fixed;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  overflow-y: auto;
+  padding-top: 20px;
+  border-right: 2px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+  animation: sidebarSlide 0.6s ease;
 }
 
+@keyframes sidebarSlide {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* PROFILE SECTION */
 .profile-section {
   text-align: center;
-  padding: 20px;
-  border-bottom: 1px solid #444;
+  margin-bottom: 25px;
+  padding: 15px 0;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  animation: fadeIn 1s ease;
 }
 
+/* PROFILE IMAGE */
 .profile-img {
   width: 90px;
   height: 90px;
   border-radius: 50%;
-  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.45);
+  transition: 0.4s ease;
 }
 
+.profile-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px #1e90ff;
+}
+
+/* PROFILE NAME */
 .profile-name {
-  margin-top: 10px;
-  font-size: 16px;
+  margin-top: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 5px rgba(255,255,255,0.4);
 }
 
-.sidebar-menu {
+/* MENU LIST */
+.menu {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-top: 10px;
 }
 
-.sidebar-menu li {
-  padding: 15px 20px;
+.menu li {
+  padding: 12px 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s ease;
+}
+
+/* LIGHT SWIPE EFFECT */
+.menu li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.menu li:hover::after {
+  left: 120%;
+}
+
+/* HOVER ANIMATION */
+.menu li:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateX(8px);
+}
+
+/* MENU LINKS */
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  transition: background 0.3s;
+  gap: 12px;
 }
 
-.sidebar-menu li:hover {
-  background-color: #1e90ff;
+/* ICON */
+.menu-icon {
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.menu li:hover .menu-icon {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* ACTIVE ITEM */
+.menu li.active {
+  background: #1e90ff;
+  border-left: 5px solid white;
+  box-shadow: 0 0 12px rgba(30,144,255,0.7);
+  animation: activePulse 0.3s ease;
+}
+
+@keyframes activePulse {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 1;
+  background: #f5f7fa;
+  padding: 25px;
+  overflow-y: auto;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

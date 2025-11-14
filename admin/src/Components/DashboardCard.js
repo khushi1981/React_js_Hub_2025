@@ -1,4 +1,3 @@
-// src/Components/DashboardCard.js
 import React from "react";
 
 const DashboardCard = ({ title, count, color, icon }) => {

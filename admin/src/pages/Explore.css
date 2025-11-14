@@ -1,0 +1,75 @@
+.explore-container {
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* Green Table Header */
+table.dataTable thead th {
+  background-color: #00a65a !important;
+  color: white !important;
+  text-align: left;
+}
+
+/* Table inner styling */
+table.dataTable {
+  border-collapse: collapse;
+  width: 100%;
+  background: white;
+}
+
+/* Edit Button */
+.edit-btn {
+  background: #007bff;
+  padding: 6px 12px;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  width: 450px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.modal-content input,
+.modal-content textarea {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.update-btn {
+  background: #28a745;
+  border: 0;
+  padding: 8px 12px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
