@@ -102,10 +102,7 @@ function Footer() {
         sx={{ textAlign: "center", mt: 3 }}
       >
         <Typography
-          variant="subtitle1"
-          gutterBottom
-          sx={{ color: "#ffd700" }}
-        >
+          variant="subtitle1" gutterBottom sx={{ color: "#ffd700" }}>
           Subscribe to our Newsletter
         </Typography>
 
@@ -194,3 +191,4 @@ function Footer() {
 }
 
 export default Footer;
+

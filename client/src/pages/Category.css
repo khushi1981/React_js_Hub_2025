@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.category-container {
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #fceabb, #f8b500);
+  min-height: calc(100vh - 80px);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+  font-family: "Poppins", sans-serif;
+  color: #2d2d2d;
+}
+
+.category-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Title ---------- */
+.category-title {
+  font-size: 42px;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, #ff512f, #dd2476);
+  background-clip: text;              /* ✅ Added standard property */
+  -webkit-background-clip: text;      /* ✅ For Chrome/Safari */
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.category-subtitle {
+  font-size: 17px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* ---------- Grid ---------- */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ---------- Card ---------- */
+.category-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: scale(0.9);
+  opacity: 0;
+  animation: cardPop 0.8s forwards;
+  transition: all 0.4s ease;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 35px rgba(255, 87, 34, 0.3);
+}
+
+.category-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.category-card:hover .category-image {
+  transform: scale(1.1);
+}
+
+.category-info {
+  padding: 18px;
+}
+
+.category-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.category-desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.category-meta {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+/* ---------- Buttons ---------- */
+.category-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.category-btn:hover {
+  background: linear-gradient(135deg, #d31027, #ea384d);
+  transform: translateY(-3px);
+}
+
+/* ---------- Modal ---------- */
+.category-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.4s ease;
+}
+
+.category-modal {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  width: 90%;
+  max-width: 520px;
+  text-align: center;
+  animation: zoomIn 0.5s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-image {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.modal-courses {
+  margin-top: 10px;
+  color: #444;
+  font-weight: 500;
+}
+
+/* ---------- Close Button ---------- */
+.close-btn {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #d6336c, #ff1744);
+}
+
+/* ---------- Animations ---------- */
+@keyframes cardPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

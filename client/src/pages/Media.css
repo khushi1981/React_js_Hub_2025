@@ -1,0 +1,276 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+.media-container {
+  padding: 60px 40px;
+  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+  min-height: calc(100vh - 80px);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+  font-family: "Poppins", sans-serif;
+  color: #2d2d2d;
+}
+
+.media-container.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Title ---------- */
+.media-title {
+  font-size: 40px;
+  font-weight: 800;
+  text-align: center;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  background-clip: text;              /* ✅ Added standard property */
+  -webkit-background-clip: text;      /* ✅ For Chrome/Safari */
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.media-subtitle {
+  font-size: 17px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* ---------- Grid ---------- */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ---------- Card ---------- */
+.media-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: scale(0.9);
+  opacity: 0;
+  animation: cardPop 0.8s forwards;
+  transition: all 0.4s ease;
+}
+
+.media-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 35px rgba(90, 0, 255, 0.3);
+}
+
+.media-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.media-card:hover .media-thumbnail {
+  transform: scale(1.1);
+}
+
+.media-info {
+  padding: 18px;
+}
+
+.media-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.media-desc {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+  min-height: 50px;
+}
+
+.media-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.media-date {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 15px;
+}
+
+/* ---------- Buttons ---------- */
+.media-btn,
+.view-btn,
+.download-btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  color: #fff;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.media-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+}
+
+.media-btn:hover {
+  background: linear-gradient(135deg, #4c0fa0, #0056b3);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.view-btn {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  margin-right: 10px;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+}
+
+.view-btn:hover {
+  background: linear-gradient(135deg, #11998e, #38ef7d);
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #d31027, #ea384d);
+}
+
+/* ---------- Modal ---------- */
+.media-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  animation: fadeIn 0.4s ease;
+}
+
+.media-modal {
+  background: #fff;
+  border-radius: 18px;
+  padding: 30px;
+  width: 90%;
+  max-width: 520px;
+  text-align: center;
+  animation: zoomIn 0.5s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-thumbnail {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.modal-actions {
+  margin-top: 15px;
+}
+
+.close-btn {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #d6336c, #ff1744);
+}
+
+/* ---------- Animations ---------- */
+@keyframes cardPop {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- Font & Theme Upgrade ---------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.media-container {
+  font-family: "Poppins", sans-serif;
+  color: #2b2b2b;
+}
+
+.media-title {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
+}
+
+.media-desc {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.media-btn {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 10px;
+  background: linear-gradient(135deg, #28a745, #00c851);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-link:hover {
+  background: linear-gradient(135deg, #218838, #00994d);
+  transform: scale(1.05);
+}

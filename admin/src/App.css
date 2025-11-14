@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.admin-app {
+  margin-left: 270px; /* matches sidebar width */
+  margin-top: 70px; /* matches header height */
+  margin-bottom: 70px; /* matches footer height */
+  padding: 20px;
+  min-height: calc(100vh - 140px);
+  background-color: #f8f9fa;
+}

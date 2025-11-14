@@ -1,0 +1,17 @@
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 40px;
+  background-color: #f4f6f9;
+  min-height: 100vh;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}

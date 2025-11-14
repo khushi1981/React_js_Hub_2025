@@ -4,11 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Pages
 import AdminLogin from "./pages/AdminLogin";
-import AdminDashboard from "./pages/AdminDashboard";
+import Dashboard from "./pages/Dashboard";
 
 // Global Components
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import Sidebar from "./Components/Sidebar";
 
 // Global CSS
 import "./App.css";
@@ -19,6 +20,8 @@ function App() {
       {/* ---------- Global Header ---------- */}
       <Header />
 
+      
+
       {/* ---------- Main App Content ---------- */}
       <main className="admin-app">
         <Routes>
@@ -26,7 +29,7 @@ function App() {
           <Route path="/" element={<AdminLogin />} />
 
           {/* Protected/Admin Route → Dashboard */}
-          <Route path="/dashboard" element={<AdminDashboard />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </main>
 

@@ -16,6 +16,9 @@ import AuthPage from "./pages/AuthPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import UserDashboard from "./pages/UserDashboard";
+import Media from "./pages/Media";
+import Category from "./pages/Category";
+import Subscription from "./pages/Subscription";
 import UserProfile from "./pages/UserProfile";
 import Explore from "./pages/Explore";
 import Subjects from "./pages/Subjects";
@@ -28,6 +31,9 @@ function App() {
   const isDashboardPage =
     location.pathname.startsWith("/dashboard") ||
     location.pathname.startsWith("/userdashboard") ||
+    location.pathname.startsWith("/media") ||
+    location.pathname.startsWith("/category") ||
+    location.pathname.startsWith("/subscription") ||
     location.pathname.startsWith("/userprofile");
 
   return (
@@ -49,6 +55,9 @@ function App() {
           {/* Dashboard Routes */}
           <Route path="/dashboard" element={<UserDashboard />} />
           <Route path="/userdashboard" element={<UserDashboard />} />
+          <Route path="/media" element={<Media />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/subscription" element={<Subscription />} />
           <Route path="/userprofile" element={<UserProfile />} />
 
           {/* Other Pages */}
