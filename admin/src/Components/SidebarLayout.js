@@ -19,9 +19,7 @@ const SidebarLayout = () => {
   const menuItems = [
     { label: "Dashboard", path: "/dashboard", icon: <FaTachometerAlt /> },
     { label: "Explore", path: "/explore", icon: <FaCompass /> },
-    { label: "Media", path: "/media", icon: <FaPhotoVideo /> },
-    { label: "New Admin", path: "/new-admin", icon: <FaUserPlus /> },
-    { label: "Admin Information", path: "/admin-info", icon: <FaUserShield /> },
+    { label: "Subject", path: "/Subject", icon: <FaPhotoVideo /> },
     { label: "User Information", path: "/user-info", icon: <FaUsers /> },
     { label: "Subscription Plans", path: "/plans", icon: <FaTags /> },
     { label: "User Subscription Details", path: "/subscriptions", icon: <FaListAlt /> },

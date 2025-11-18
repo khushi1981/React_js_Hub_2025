@@ -5,8 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminLogin from "./pages/AdminLogin";
 import Dashboard from "./pages/Dashboard";
 import Explore from "./pages/Explore";
-import Media from "./pages/Media";
-import NewAdmin from "./pages/NewAdmin";
+import Subject from "./pages/Subject";
 import AdminInfo from "./pages/AdminInfo";
 import UserInfo from "./pages/UserInfo";
 import Plans from "./pages/Plans";
@@ -39,8 +38,7 @@ function App() {
         <Route element={<SidebarLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/explore" element={<Explore />} />
-          <Route path="/media" element={<Media />} />
-          <Route path="/new-admin" element={<NewAdmin />} />
+          <Route path="/Subject" element={<Subject/>} />
           <Route path="/admin-info" element={<AdminInfo />} />
           <Route path="/user-info" element={<UserInfo />} />
           <Route path="/plans" element={<Plans />} />

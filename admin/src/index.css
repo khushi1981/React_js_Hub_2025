@@ -11,3 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Add to src/index.css */
+.container { max-width: 1100px; margin: 20px auto; padding: 10px; font-family: Arial, sans-serif; background: #fff; border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.view-format h1 { margin: 0 0 12px 0; font-size: 22px; }
+.table-format { width: 100%; border-collapse: collapse; font-size: 14px; }
+.table-format thead th { background: #f7fafc; padding: 10px; border: 1px solid #eee; text-align: left; }
+.table-format td { padding: 10px; border: 1px solid #eee; vertical-align: middle; }
+.table-format img { display: block; max-width: 80px; max-height: 60px; object-fit: contain; }
+
+.btn { padding: 6px 10px; background: #2563eb; color: white; border: none; border-radius: 4px; cursor: pointer; }
+.btn.small { padding: 4px 8px; font-size: 13px; }
+.btn.danger { background: #ef4444; }
+
+.form-group { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+input[type="text"], textarea, select { padding: 8px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; width: 100%; box-sizing: border-box; }
+textarea { min-height: 80px; resize: vertical; }
+
+/* Modal */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; z-index:1000; }
+.modal-content { width: 720px; max-width: 95%; background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
+.modal .close { float: right; cursor: pointer; font-size: 20px; background: none; border: none; }

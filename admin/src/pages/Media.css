@@ -1,0 +1,20 @@
+.media {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+.card {
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  background:#fff;
+  border-radius:8px;
+  padding:14px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  cursor:pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.08); }
+.card img { border-radius:6px; object-fit:cover; height:50px; width:50px; }
+.card-content h3 { margin:0 0 6px 0; font-size:16px; color:#004d40; }
+.card-content p { margin:0; color:#555; font-size:14px; }

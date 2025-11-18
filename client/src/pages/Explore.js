@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import "./Explore.css";
 
 const initialState = {
@@ -67,8 +67,9 @@ function reducer(state, action) {
 
 export default function Explore() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [showPopup, setShowPopup] = useState(false);
+  const [currentDownload, setCurrentDownload] = useState(null);
 
-  // Handle image fallback
   const handleImgError = (e) => {
     const img = e.target;
     if (!img.dataset.fallbackTried) {
@@ -83,7 +84,26 @@ export default function Explore() {
     }
   };
 
-  // Load sample data
+  // Handle download - Create a text file containing video link
+  const confirmDownload = () => {
+    if (!currentDownload) return;
+
+    const blob = new Blob(
+      [`Video Link:\n${currentDownload}`],
+      { type: "text/plain" }
+    );
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = "video_link.txt";
+    a.click();
+
+    URL.revokeObjectURL(url);
+    setShowPopup(false);
+  };
+
   useEffect(() => {
     const sampleFormats = [
       { _id: "1", format_name: "Video" },
@@ -108,52 +128,34 @@ export default function Explore() {
         logo: process.env.PUBLIC_URL + "/images/romanticism.jpg",
         subject: "Philosophy",
         format: "Audio",
-        "media-file": process.env.PUBLIC_URL + "/media/romanticism.mp3",
+        "media-file": "https://youtu.be/GsmXaO38wP4",
       },
       {
         _id: "m2",
         name: "Introduction to Calculus",
-        desc: "Learn derivatives, integrals, and continuous change in this introduction to Calculus.",
+        desc: "Learn derivatives, integrals, and continuous change in Calculus.",
         logo: process.env.PUBLIC_URL + "/images/calculus.jpg",
         subject: "Mathematics",
         format: "Book",
-        "media-file": process.env.PUBLIC_URL + "/media/calculus.pdf",
+        "media-file": "https://youtu.be/3Xytg7IV6EM",
       },
       {
         _id: "m3",
         name: "Introduction to Differential Calculus",
-        desc: "Explore rates of change and slopes of curves in Differential Calculus.",
+        desc: "Explore rates of change in Differential Calculus.",
         logo: process.env.PUBLIC_URL + "/images/differential.jpg",
         subject: "Mathematics",
         format: "Video",
-        "media-file": process.env.PUBLIC_URL + "/media/differential.mp4",
+        "media-file": "https://youtu.be/3Xytg7IV6EM",
       },
       {
         _id: "m4",
-        name: "The Basics of Music Theory Explained in 10 Minutes",
-        desc: "Learn scales, chords, and rhythm fundamentals — perfect for beginners.",
+        name: "Music Theory in 10 Minutes",
+        desc: "Learn scales, chords, and rhythm.",
         logo: process.env.PUBLIC_URL + "/images/music.jpg",
         subject: "Music",
         format: "Audio",
-        "media-file": process.env.PUBLIC_URL + "/media/music.mp3",
-      },
-      {
-        _id: "m5",
-        name: "What is Literature For?",
-        desc: "Explores literature’s purpose — empathy, understanding, and human connection.",
-        logo: process.env.PUBLIC_URL + "/images/literature.jpg",
-        subject: "Literature",
-        format: "Article",
-        "media-file": process.env.PUBLIC_URL + "/media/literature.mp4",
-      },
-      {
-        _id: "m6",
-        name: "What is Psychology?",
-        desc: "An engaging look into psychology and its importance in understanding human behavior.",
-        logo: process.env.PUBLIC_URL + "/images/psychology.jpg",
-        subject: "Psychology",
-        format: "Video",
-        "media-file": process.env.PUBLIC_URL + "/media/psychology.mp4",
+        "media-file": "https://youtu.be/AmC_qmSODEk",
       },
     ];
 
@@ -167,7 +169,6 @@ export default function Explore() {
     });
   }, []);
 
-  // Automatically re-filter whenever any filter changes
   useEffect(() => {
     dispatch({ type: "FILTER_MEDIA" });
   }, [state.searchTerm, state.selectedFormat, state.selectedSubject]);
@@ -219,7 +220,6 @@ export default function Explore() {
             />
           </div>
 
-          {/* Clear Button */}
           <button
             className="clear-btn"
             onClick={() => dispatch({ type: "CLEAR_FILTERS" })}
@@ -228,7 +228,7 @@ export default function Explore() {
           </button>
         </div>
 
-        {/* Media Cards */}
+        {/* Cards */}
         <div className="card-grid">
           {state.media.length > 0 ? (
             state.media.map((item) => (
@@ -237,22 +237,41 @@ export default function Explore() {
                 <h4>{item.name}</h4>
                 <p>{item.desc}</p>
                 <div className="btn-group">
-                  <button
-                    onClick={() => window.open(item["media-file"], "_blank")}
-                  >
+                  <button onClick={() => window.open(item["media-file"], "_blank")}>
                     View
                   </button>
-                  <a href={item["media-file"]} download>
-                    <button>Download</button>
-                  </a>
+
+                  <button
+                    onClick={() => {
+                      setCurrentDownload(item["media-file"]);
+                      setShowPopup(true);
+                    }}
+                  >
+                    Download
+                  </button>
                 </div>
               </div>
             ))
           ) : (
-            <p className="no-result">No content found matching your criteria. hiiii</p>
+            <p className="no-result">No content found.</p>
           )}
         </div>
       </main>
+
+      {/* Popup Box */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup-box">
+            <h3>Download Video?</h3>
+            <p>Do you want to download this video link?</p>
+
+            <div className="popup-buttons">
+              <button className="yes-btn" onClick={confirmDownload}>Yes</button>
+              <button className="no-btn" onClick={() => setShowPopup(false)}>No</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
