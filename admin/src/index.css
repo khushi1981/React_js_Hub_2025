@@ -32,3 +32,5 @@ textarea { min-height: 80px; resize: vertical; }
 .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display:flex; align-items:center; justify-content:center; z-index:1000; }
 .modal-content { width: 720px; max-width: 95%; background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
 .modal .close { float: right; cursor: pointer; font-size: 20px; background: none; border: none; }
+
+

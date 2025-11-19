@@ -18,7 +18,7 @@ export default function Category() {
       type: "Technology",
       courses: 25,
       created: "2025-10-10",
-      thumbnail: "https://picsum.photos/400/250?random=21",
+      logo: "/images/AI.webp",
       link: "https://en.wikipedia.org/wiki/Artificial_intelligence",
     },
     {
@@ -29,7 +29,7 @@ export default function Category() {
       type: "Programming",
       courses: 32,
       created: "2025-09-20",
-      thumbnail: "https://picsum.photos/400/250?random=22",
+      logo: "/images/Web-Devlopment.jpg",
       link: "https://developer.mozilla.org/en-US/docs/Learn",
     },
     {
@@ -40,7 +40,7 @@ export default function Category() {
       type: "Analytics",
       courses: 18,
       created: "2025-08-15",
-      thumbnail: "https://picsum.photos/400/250?random=23",
+      logo: "/images/Data_Science.webp",
       link: "https://en.wikipedia.org/wiki/Data_science",
     },
     {
@@ -51,7 +51,7 @@ export default function Category() {
       type: "Design",
       courses: 20,
       created: "2025-07-10",
-      thumbnail: "https://picsum.photos/400/250?random=24",
+      logo: "/images/UI-UX.jpg",
       link: "https://www.interaction-design.org/literature/topics/ui-design",
     },
     {
@@ -62,7 +62,7 @@ export default function Category() {
       type: "Security",
       courses: 15,
       created: "2025-06-01",
-      thumbnail: "https://picsum.photos/400/250?random=25",
+      logo: "/images/Security.jpg",
       link: "https://en.wikipedia.org/wiki/Computer_security",
     },
     {
@@ -73,7 +73,7 @@ export default function Category() {
       type: "Infrastructure",
       courses: 22,
       created: "2025-05-12",
-      thumbnail: "https://picsum.photos/400/250?random=26",
+      logo: "/images/Cloud.jpg",
       link: "https://en.wikipedia.org/wiki/Cloud_computing",
     },
     {
@@ -84,7 +84,7 @@ export default function Category() {
       type: "Development",
       courses: 19,
       created: "2025-04-22",
-      thumbnail: "https://picsum.photos/400/250?random=27",
+      logo: "/images/Mobile.jpg",
       link: "https://reactnative.dev/",
     },
     {
@@ -95,7 +95,7 @@ export default function Category() {
       type: "Marketing",
       courses: 17,
       created: "2025-03-15",
-      thumbnail: "https://picsum.photos/400/250?random=28",
+      logo: "/images/digital-marketing.jpg",
       link: "https://en.wikipedia.org/wiki/Digital_marketing",
     },
   ];
@@ -115,7 +115,7 @@ export default function Category() {
             style={{ animationDelay: `${index * 0.1}s` }}
           >
             <img
-              src={item.thumbnail}
+              src={item.logo}  // 🔥 FIXED HERE
               alt={item.title}
               className="media-thumbnail"
             />
@@ -146,7 +146,7 @@ export default function Category() {
         >
           <div className="media-modal" onClick={(e) => e.stopPropagation()}>
             <img
-              src={selectedCategory.thumbnail}
+              src={selectedCategory.logo}  // 🔥 FIXED HERE
               alt={selectedCategory.title}
               className="modal-thumbnail"
             />

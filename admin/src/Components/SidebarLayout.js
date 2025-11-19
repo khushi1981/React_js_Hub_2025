@@ -1,20 +1,27 @@
 import React from "react";
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import {
   FaTachometerAlt,
   FaCompass,
   FaPhotoVideo,
-  FaUserPlus,
-  FaUserShield,
   FaUsers,
   FaTags,
   FaListAlt,
-  FaChartBar
+  FaSignOutAlt,
 } from "react-icons/fa";
 import "./Sidebar.css";
 
 const SidebarLayout = () => {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  // Logout function
+  const handleLogout = () => {
+    // Clear authentication/session data
+    localStorage.removeItem("authToken"); // Example: remove token
+    // Redirect to admin login (home page)
+    navigate("/"); // "/" is your AdminLogin page
+  };
 
   const menuItems = [
     { label: "Dashboard", path: "/dashboard", icon: <FaTachometerAlt /> },
@@ -23,7 +30,12 @@ const SidebarLayout = () => {
     { label: "User Information", path: "/user-info", icon: <FaUsers /> },
     { label: "Subscription Plans", path: "/plans", icon: <FaTags /> },
     { label: "User Subscription Details", path: "/subscriptions", icon: <FaListAlt /> },
-    { label: "Reports", path: "/reports", icon: <FaChartBar /> },
+    {
+      label: "Logout",
+      path: "/logout",
+      icon: <FaSignOutAlt  />,
+      onClick: handleLogout,
+    },
   ];
 
   return (
@@ -45,10 +57,21 @@ const SidebarLayout = () => {
               key={index}
               className={pathname === item.path ? "active" : ""}
             >
-              <Link to={item.path}>
-                <span className="menu-icon">{item.icon}</span>
-                {item.label}
-              </Link>
+              {item.onClick ? (
+                <button
+                  className="menu-link logout-button"
+                  onClick={item.onClick}
+                  style={{ background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                >
+                  <span className="menu-icon">{item.icon}</span>
+                  {item.label}
+                </button>
+              ) : (
+                <Link to={item.path} className="menu-link">
+                  <span className="menu-icon">{item.icon}</span>
+                  {item.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

@@ -29,7 +29,7 @@ export default function Media() {
       type: "eBook (PDF)",
       size: "5.6 MB",
       uploaded: "2025-09-25",
-      logo: "/images/Web-Development-Design.jpg",
+      logo: "/images/Web-Devlopment-Design.png",
       link: "/files/Web-Devlopment.pdf",
     },
     {
@@ -117,7 +117,7 @@ export default function Media() {
       type: "Guide (PDF)",
       size: "4.9 MB",
       uploaded: "2025-01-22",
-      logo: "/images/business-guide.webp",
+      logo: "/images/business_guide.webp",
       link: "/files/business.pdf",
     },
   ];

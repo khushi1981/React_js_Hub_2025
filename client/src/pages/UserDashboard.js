@@ -2,14 +2,36 @@
 import React from "react";
 import "./UserDashboard.css";
 
+const formats = [
+  { id: 1, name: "Books", logo: "/images/bookCover.jpg", description: "Read and learn from books" },
+  { id: 2, name: "Videos", logo: "/images/videoCover.webp", description: "Watch educational videos" },
+  { id: 3, name: "Audio", logo: "/images/audioCover.webp", description: "Listen to audio lessons" },
+];
+
+const subjects = [
+  { id: 1, name: "Mathematics", logo: "/images/mathCover.webp", description: "Explore numbers and formulas" },
+  { id: 2, name: "Science", logo: "/images/scienceCover.webp", description: "Learn about the world around you" },
+  { id: 3, name: "History", logo: "/images/historyCover.jpg", description: "Understand past events" },
+];
+
 const UserDashboard = () => {
+  const renderCards = (items) =>
+    items.map((item) => (
+      <div key={item.id} className="ud-card">
+        <img src={item.logo} alt={item.name} className="ud-card-img" />
+        <h4 className="ud-card-title">{item.name}</h4>
+        <p className="ud-card-desc">{item.description}</p>
+      </div>
+    ));
+
   return (
     <div className="user-dashboard">
+
       {/* ---------- Dashboard Hero Section ---------- */}
       <section className="dashboard-hero">
         <div className="dashboard-hero-left">
           <img
-            src="/images/Welcome.png" // same image as Home page
+            src="/images/Welcome.png"
             alt="Welcome"
             className="dashboard-welcome-img"
           />
@@ -18,34 +40,40 @@ const UserDashboard = () => {
         <div className="dashboard-hero-right">
           <h1 className="dashboard-title">Welcome to the Resource Hub</h1>
           <p className="dashboard-desc">
-            Resource Hub is a centralized collection of curated guides, templates, tools, and learning materials designed to help professionals and learners move faster. We organize high-quality resources by topic so you spend less time searching and more time doing.
+            Resource Hub is a centralized collection of curated guides, templates, tools,
+            and learning materials designed to help professionals and learners move faster.
           </p>
           <p className="dashboard-desc">
-            Resource Hub gathers the best tutorials, templates, and tools across categories—design, development, marketing, and productivity—so teams and individuals can learn quickly and ship confidently. Every item is hand-picked and categorized for fast discovery, with practical how-tos, downloadable assets, and clear next steps. Whether you’re upskilling, planning a project, or solving a one-off problem, Resource Hub helps you find the right resource in seconds.
+            Resource Hub gathers the best tutorials, templates, and tools across categories—
+            design, development, marketing, and productivity—so teams and individuals can learn
+            quickly and ship confidently.
           </p>
         </div>
       </section>
 
-      {/* ---------- Dashboard Widgets ---------- */}
-      <section className="dashboard-widgets">
-        <div className="widget">
-          <h3>My Courses</h3>
-          <p>View and manage your enrolled subjects.</p>
-          <button className="dashboard-btn">View</button>
-        </div>
+      {/* ---------- NEW: Formats + Subjects Section (Side-by-side row) ---------- */}
+      <section className="dashboard-cards-section">
+        <div className="dashboard-row">
 
-        <div className="widget">
-          <h3>Recent Activity</h3>
-          <p>Check your latest progress and submissions.</p>
-          <button className="dashboard-btn">Open</button>
-        </div>
+          {/* Formats */}
+          <div className="dashboard-column">
+            <h2 className="ud-section-title">Available Formats</h2>
+            <div className="ud-card-grid">
+              {renderCards(formats)}
+            </div>
+          </div>
 
-        <div className="widget">
-          <h3>Profile Settings</h3>
-          <p>Update your personal details and password.</p>
-          <button className="dashboard-btn">Edit</button>
+          {/* Subjects */}
+          <div className="dashboard-column">
+            <h2 className="ud-section-title">Subjects</h2>
+            <div className="ud-card-grid">
+              {renderCards(subjects)}
+            </div>
+          </div>
+
         </div>
       </section>
+
     </div>
   );
 };

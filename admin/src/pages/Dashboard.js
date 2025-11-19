@@ -18,7 +18,7 @@ const Dashboard = () => {
         <div className="card green">
           <FaFileAlt className="icon" />
           <h2>Format Count</h2>
-          <h1>3</h1>
+          <h1>4</h1>
           <p>Total number of content formats available.</p>
         </div>
 
@@ -36,25 +36,11 @@ const Dashboard = () => {
           <p>Total media files available.</p>
         </div>
 
-        <div className="card purple">
-          <FaUserShield className="icon" />
-          <h2>Admins</h2>
-          <h1>4</h1>
-          <p>Total admin users on platform.</p>
-        </div>
-
         <div className="card red">
           <FaUsers className="icon" />
           <h2>Users</h2>
           <h1>22</h1>
           <p>Total registered users.</p>
-        </div>
-
-        <div className="card pink">
-          <FaTags className="icon" />
-          <h2>Tags</h2>
-          <h1>15</h1>
-          <p>Tags used across platform.</p>
         </div>
 
       </div>

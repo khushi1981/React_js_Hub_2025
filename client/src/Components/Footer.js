@@ -13,26 +13,54 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 
 function Footer() {
-  // ✅ Newsletter Form Setup
+  // Social links
+  const socialLinks = {
+    Facebook: "https://facebook.com",
+    Instagram: "https://instagram.com",
+    Twitter: "https://twitter.com",
+    YouTube: "https://youtube.com",
+  };
+
+  const handleSocialClick = (platform) => {
+    window.open(socialLinks[platform], "_blank");
+  };
+
+  const handleAdminLogin = () => {
+    window.open("http://localhost:3000", "_blank");
+  };
+
+  // Newsletter formik
   const formik = useFormik({
     initialValues: { email: "" },
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email("Invalid email address")
-        .required("Email is required"),
+      email: Yup.string().email("Invalid email").required("Email required"),
     }),
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await fetch("http://localhost:5000/api/subscribe", {
+        const user = {
+          userId: "subscriber_" + Date.now(),
+          email: values.email,
+          password: "newsletter",
+        };
+
+        const res = await fetch("http://localhost:5000/api/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(values),
+          body: JSON.stringify(user),
         });
+
+        const data = await res.json();
+
         if (res.ok) {
           alert("Subscription successful!");
           resetForm();
         } else {
-          alert("Error subscribing.");
+          if (data.message.includes("already exists")) {
+            alert("You are already subscribed!");
+            resetForm();
+          } else {
+            alert("Error subscribing: " + data.message);
+          }
         }
       } catch (error) {
         console.error(error);
@@ -41,21 +69,9 @@ function Footer() {
     },
   });
 
-  // ✅ Handle Admin Login Button Click
-  const handleAdminLogin = () => {
-    window.open("http://localhost:3000", "_blank"); // Opens admin login in new tab
-  };
-
   return (
-    <Box
-      component="footer"
-      sx={{
-        backgroundColor: "#1e3d59",
-        p: 4,
-        mt: 4,
-      }}
-    >
-      {/* ---------- Top Section ---------- */}
+    <Box component="footer" sx={{ backgroundColor: "#1e3d59", p: 4, mt: 4 }}>
+      {/* Top Section */}
       <Box sx={{ textAlign: "center", mb: 3 }}>
         <Typography
           variant="h5"
@@ -65,13 +81,12 @@ function Footer() {
             fontSize: "1.9rem",
             background: "linear-gradient(45deg, #ff6f61, #ffd700)",
             WebkitBackgroundClip: "text",
-            backgroundClip: "text", // ✅ Added for cross-browser support
+            backgroundClip: "text",
             color: "transparent",
           }}
         >
           Knowledge Nexus
         </Typography>
-
         <Typography
           variant="body2"
           sx={{ maxWidth: "600px", mx: "auto", mt: 1, color: "#ffd700" }}
@@ -80,17 +95,36 @@ function Footer() {
           with the right knowledge, tools, and communities.
         </Typography>
 
-        {/* ---------- Social Media Links ---------- */}
+        {/* Social Icons */}
         <Box sx={{ mt: 2 }}>
-          {[Facebook, Instagram, Twitter, YouTube].map((Icon, idx) => (
-            <IconButton key={idx} sx={{ color: "#ffd700" }}>
-              <Icon />
-            </IconButton>
-          ))}
+          <IconButton
+            sx={{ color: "#ffd700" }}
+            onClick={() => handleSocialClick("Facebook")}
+          >
+            <Facebook />
+          </IconButton>
+          <IconButton
+            sx={{ color: "#ffd700" }}
+            onClick={() => handleSocialClick("Instagram")}
+          >
+            <Instagram />
+          </IconButton>
+          <IconButton
+            sx={{ color: "#ffd700" }}
+            onClick={() => handleSocialClick("Twitter")}
+          >
+            <Twitter />
+          </IconButton>
+          <IconButton
+            sx={{ color: "#ffd700" }}
+            onClick={() => handleSocialClick("YouTube")}
+          >
+            <YouTube />
+          </IconButton>
         </Box>
       </Box>
 
-      {/* ---------- Newsletter Subscription Form ---------- */}
+      {/* Newsletter Form */}
       <Box
         component="form"
         onSubmit={formik.handleSubmit}
@@ -99,7 +133,6 @@ function Footer() {
         <Typography variant="subtitle1" gutterBottom sx={{ color: "#ffd700" }}>
           Subscribe to our Newsletter
         </Typography>
-
         <TextField
           size="small"
           name="email"
@@ -130,7 +163,7 @@ function Footer() {
         </Button>
       </Box>
 
-      {/* ---------- Bottom Section ---------- */}
+      {/* Bottom Section */}
       <Box
         sx={{
           mt: 4,
@@ -144,25 +177,20 @@ function Footer() {
         <Typography variant="body2" sx={{ mb: 1, color: "#ffd700" }}>
           © {new Date().getFullYear()} Knowledge Nexus. All rights reserved.
         </Typography>
-
         <Box>
-          {[
-            "Home",
-            "About",
-            "Explore",
-            "Subjects",
-            "AuthPage",
-          ].map((text, idx) => (
-            <Link
-              key={idx}
-              href={`/${text.toLowerCase().replace(" ", "")}`}
-              sx={{ mx: 1, color: "#ffd700" }}
-            >
-              {text}
-            </Link>
-          ))}
+          {["Home", "About", "Explore", "Subjects", "AuthPage"].map(
+            (text, idx) => (
+              <Link
+                key={idx}
+                href={`/${text.toLowerCase().replace(" ", "")}`}
+                sx={{ mx: 1, color: "#ffd700" }}
+              >
+                {text}
+              </Link>
+            )
+          )}
 
-          {/* ✅ Admin Login Button */}
+          {/* Admin Login */}
           <Button
             variant="outlined"
             onClick={handleAdminLogin}

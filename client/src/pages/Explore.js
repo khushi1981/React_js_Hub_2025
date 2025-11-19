@@ -84,39 +84,37 @@ export default function Explore() {
     }
   };
 
-  // Handle download - Create a text file containing video link
+  // ⭐ FIXED: REAL FILE DOWNLOAD WORKS NOW
   const confirmDownload = () => {
     if (!currentDownload) return;
 
-    const blob = new Blob(
-      [`Video Link:\n${currentDownload}`],
-      { type: "text/plain" }
-    );
+    const fileURL = currentDownload;
+    const fileName = fileURL.split("/").pop();
 
-    const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
-
-    a.href = url;
-    a.download = "video_link.txt";
+    a.href = fileURL;
+    a.download = fileName; // Force the file to download
+    a.setAttribute("target", "_blank");
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
 
-    URL.revokeObjectURL(url);
     setShowPopup(false);
   };
 
   useEffect(() => {
     const sampleFormats = [
-      { _id: "1", format_name: "Video" },
-      { _id: "2", format_name: "Audio" },
-      { _id: "3", format_name: "Book" },
-      { _id: "4", format_name: "Article" },
+      { _id: "1", format_name: "Article" },
+      { _id: "2", format_name: "Book" },
+      { _id: "3", format_name: "Video" },
+      { _id: "4", format_name: "Audio" },
     ];
 
     const sampleSubjects = [
       { _id: "1", name: "Mathematics" },
-      { _id: "2", name: "Psychology" },
+      { _id: "2", name: "History" },
       { _id: "3", name: "Music" },
-      { _id: "4", name: "Philosophy" },
+      { _id: "4", name: "Maths" },
       { _id: "5", name: "Literature" },
     ];
 
@@ -126,9 +124,9 @@ export default function Explore() {
         name: "History of Ideas: Romanticism",
         desc: "Explores the Romantic era’s emphasis on emotion, individualism, and nature.",
         logo: process.env.PUBLIC_URL + "/images/romanticism.jpg",
-        subject: "Philosophy",
-        format: "Audio",
-        "media-file": "https://youtu.be/GsmXaO38wP4",
+        subject: "History",
+        format: "Article",
+        "media-file": "https://en.wikipedia.org/wiki/Romanticism",
       },
       {
         _id: "m2",
@@ -137,16 +135,16 @@ export default function Explore() {
         logo: process.env.PUBLIC_URL + "/images/calculus.jpg",
         subject: "Mathematics",
         format: "Book",
-        "media-file": "https://youtu.be/3Xytg7IV6EM",
+        "media-file": "/files/CalculusVolume1.pdf",
       },
       {
         _id: "m3",
         name: "Introduction to Differential Calculus",
         desc: "Explore rates of change in Differential Calculus.",
         logo: process.env.PUBLIC_URL + "/images/differential.jpg",
-        subject: "Mathematics",
+        subject: "Maths",
         format: "Video",
-        "media-file": "https://youtu.be/3Xytg7IV6EM",
+        "media-file": "https://youtu.be/3Xytg7IV6EM?si=VAx2WQQ6WA4l5idR",
       },
       {
         _id: "m4",
@@ -155,7 +153,7 @@ export default function Explore() {
         logo: process.env.PUBLIC_URL + "/images/music.jpg",
         subject: "Music",
         format: "Audio",
-        "media-file": "https://youtu.be/AmC_qmSODEk",
+        "media-file": "https://youtu.be/mWpXy57-mvc?si=lPbQYu7tEMy-QWts"
       },
     ];
 
@@ -237,7 +235,11 @@ export default function Explore() {
                 <h4>{item.name}</h4>
                 <p>{item.desc}</p>
                 <div className="btn-group">
-                  <button onClick={() => window.open(item["media-file"], "_blank")}>
+                  <button
+                    onClick={() =>
+                      window.open(item["media-file"], "_blank")
+                    }
+                  >
                     View
                   </button>
 
@@ -262,12 +264,16 @@ export default function Explore() {
       {showPopup && (
         <div className="popup-overlay">
           <div className="popup-box">
-            <h3>Download Video?</h3>
-            <p>Do you want to download this video link?</p>
+            <h3>Download File?</h3>
+            <p>Do you want to download this file?</p>
 
             <div className="popup-buttons">
-              <button className="yes-btn" onClick={confirmDownload}>Yes</button>
-              <button className="no-btn" onClick={() => setShowPopup(false)}>No</button>
+              <button className="yes-btn" onClick={confirmDownload}>
+                Yes
+              </button>
+              <button className="no-btn" onClick={() => setShowPopup(false)}>
+                No
+              </button>
             </div>
           </div>
         </div>

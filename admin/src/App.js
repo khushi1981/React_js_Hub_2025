@@ -6,11 +6,10 @@ import AdminLogin from "./pages/AdminLogin";
 import Dashboard from "./pages/Dashboard";
 import Explore from "./pages/Explore";
 import Subject from "./pages/Subject";
-import AdminInfo from "./pages/AdminInfo";
 import UserInfo from "./pages/UserInfo";
 import Plans from "./pages/Plans";
 import UserSubscriptions from "./pages/UserSubscriptions";
-import Reports from "./pages/Reports";
+
 
 // Components
 import SidebarLayout from "./Components/SidebarLayout";
@@ -39,11 +38,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/Subject" element={<Subject/>} />
-          <Route path="/admin-info" element={<AdminInfo />} />
           <Route path="/user-info" element={<UserInfo />} />
           <Route path="/plans" element={<Plans />} />
           <Route path="/subscriptions" element={<UserSubscriptions />} />
-          <Route path="/reports" element={<Reports />} />
         </Route>
 
       </Routes>

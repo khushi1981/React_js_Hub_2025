@@ -9,6 +9,15 @@ export default function Subscription() {
     setVisible(true);
   }, []);
 
+  // 👉 Function to make Subscribe button work
+  const handleSubscribe = (plan) => {
+    // You can replace this with actual Razorpay / Stripe / Backend API
+    alert(`You selected the ${plan.name}. Redirecting to payment...`);
+
+    // Example redirect (you can change)
+    // window.location.href = "/checkout?plan=" + plan.id;
+  };
+
   const plans = [
     {
       id: 1,
@@ -21,7 +30,7 @@ export default function Subscription() {
         "Download up to 3 resources per week",
       ],
       color: "#43cea2",
-      thumbnail: "https://picsum.photos/400/250?random=31",
+      logo: "/images/FreePlan.jpg",
     },
     {
       id: 2,
@@ -34,7 +43,7 @@ export default function Subscription() {
         "Early access to new resources",
       ],
       color: "#2575fc",
-      thumbnail: "https://picsum.photos/400/250?random=32",
+      logo: "/images/StandardPlan.jpg",
     },
     {
       id: 3,
@@ -47,7 +56,7 @@ export default function Subscription() {
         "1-on-1 mentor sessions monthly",
       ],
       color: "#6a11cb",
-      thumbnail: "https://picsum.photos/400/250?random=33",
+      logo: "/images/PremimumPlan.jpg",
     },
     {
       id: 4,
@@ -60,7 +69,7 @@ export default function Subscription() {
         "Bulk licensing discounts",
       ],
       color: "#ff6a00",
-      thumbnail: "https://picsum.photos/400/250?random=34",
+      logo: "/images/EnterprisePlan.jpg",
     },
   ];
 
@@ -83,10 +92,11 @@ export default function Subscription() {
             }}
           >
             <img
-              src={plan.thumbnail}
+              src={plan.logo}
               alt={plan.name}
               className="subscription-thumbnail"
             />
+
             <div className="subscription-info">
               <h3 className="subscription-name">{plan.name}</h3>
               <p className="subscription-price">{plan.price}</p>
@@ -95,7 +105,6 @@ export default function Subscription() {
                   <li key={i}>✅ {feature}</li>
                 ))}
               </ul>
-
               <button
                 className="subscription-btn"
                 style={{ background: plan.color }}
@@ -118,10 +127,11 @@ export default function Subscription() {
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={selectedPlan.thumbnail}
+              src={selectedPlan.logo}
               alt={selectedPlan.name}
               className="modal-thumbnail"
             />
+
             <h2>{selectedPlan.name}</h2>
             <p className="modal-price">{selectedPlan.price}</p>
             <ul className="modal-features">
@@ -130,17 +140,16 @@ export default function Subscription() {
               ))}
             </ul>
 
+            {/* WORKING SUBSCRIBE BUTTON */}
             <button
               className="subscribe-now"
               style={{ background: selectedPlan.color }}
+              onClick={() => handleSubscribe(selectedPlan)}
             >
               Subscribe Now
             </button>
 
-            <button
-              className="close-btn"
-              onClick={() => setSelectedPlan(null)}
-            >
+            <button className="close-btn" onClick={() => setSelectedPlan(null)}>
               ✖ Close
             </button>
           </div>
